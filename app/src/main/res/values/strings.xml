@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">AppSquareTask</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="required">Required</string>
+    <string name="email_not_valid">Email not valid</string>
+    <string name="password_weak">Password is Weak</string>
+    <string name="add_product">Add Product</string>
+    <string name="title">Title</string>
+    <string name="price">Price</string>
+    <string name="quantity">Quantity</string>
+    <string name="empty">Empty</string>
+    <string name="search">Search</string>
+    <string name="name_must_3_characters">Name must be ad least 3 charaters</string>
+    <string name="invalid_number">Invalid Number</string>
+</resources>

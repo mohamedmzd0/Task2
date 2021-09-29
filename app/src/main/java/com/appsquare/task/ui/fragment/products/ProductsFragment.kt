@@ -27,7 +27,8 @@ class ProductsFragment : Fragment(), ProductItemAction {
 Total pages and current page not attached to response ,
 i need to check the current page is first - > add and update current list , else append
 if total == current -- > pagination ended
-
+page can be 1 or 10 , at this moment the api services not available (response code 522)
+i can't test it now
 
  */
 

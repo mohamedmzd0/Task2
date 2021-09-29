@@ -22,7 +22,14 @@ import com.kayan.voicechat.helper.SharedHelper
 import org.koin.android.ext.android.inject
 
 class ProductsFragment : Fragment(), ProductItemAction {
+/*
 
+Total pages and current page not attached to response ,
+i need to check the current page is first - > add and update current list , else append
+if total == current -- > pagination ended
+
+
+ */
 
     private val viewModel by inject<ProductsViewModel>()
     private lateinit var binding: ProductsFragmentBinding
@@ -47,7 +54,7 @@ class ProductsFragment : Fragment(), ProductItemAction {
 
             currentPage = 1
             isLoading = true
-            viewModel.getProducts(currentPage)
+            viewModel.getProducts(currentPage*10)
             setUpObserver()
 
 
@@ -78,7 +85,7 @@ class ProductsFragment : Fragment(), ProductItemAction {
 
                     override fun loadMoreItems() {
                         currentPage++
-                        viewModel.getProducts(currentPage)
+                        viewModel.getProducts(currentPage*10)
                     }
 
 
@@ -92,7 +99,7 @@ class ProductsFragment : Fragment(), ProductItemAction {
         viewModel.productsLivedata.observe(viewLifecycleOwner) { response ->
             when (response.status) {
                 ApiStatus.SUCCESS -> {
-
+                    // must have total of pages and current page
                     adapter.setAll(response.data?.data)
                     binding.emptyTextView.isVisible = response.data?.data.isNullOrEmpty()
                 }
